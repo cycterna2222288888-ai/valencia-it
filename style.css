@@ -63,7 +63,7 @@ nav{
 }
 .nav-row{height:60px;display:flex;align-items:center;justify-content:space-between}
 .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.nav-logo img{height:26px;border-radius:4px}
+.nav-logo img{height:28px}
 .nav-logo-t{font-size:15px;font-weight:600;color:var(--t)}
 .nav-links{display:flex}
 .nav-links a{font-size:13px;font-weight:400;color:var(--mid);text-decoration:none;padding:6px 14px;transition:color .15s}
@@ -367,7 +367,7 @@ nav{
 /* ── FOOTER ── */
 footer{border-top:1px solid var(--b1);padding:32px 60px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
 .fl{display:flex;align-items:center;gap:10px}
-.fl img{height:22px;border-radius:3px}
+.fl img{height:22px}
 .fl span{font-size:13px;font-weight:500;color:var(--mid)}
 .fc{font-size:11px;color:var(--m)}
 .flinks{display:flex;gap:20px}
