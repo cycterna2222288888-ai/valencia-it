@@ -68,6 +68,11 @@ nav{
 .nav-links{display:flex}
 .nav-links a{font-size:13px;font-weight:400;color:var(--mid);text-decoration:none;padding:6px 14px;transition:color .15s}
 .nav-links a:hover{color:var(--t)}
+.lang-sw{display:flex;align-items:center;gap:5px;margin-right:4px}
+.lang-sw a{font-size:12px;font-weight:600;color:var(--m);text-decoration:none;padding:3px 2px;transition:color .15s}
+.lang-sw a:hover,.lang-sw a.active{color:var(--t)}
+.lang-sep{font-size:11px;color:var(--b2)}
+
 .nav-cta{
   font-size:13px;font-weight:600;color:#fff;text-decoration:none;
   background:linear-gradient(135deg,var(--pk),var(--cy));
@@ -239,6 +244,8 @@ nav{
 .bc p{font-size:14px;color:var(--m);line-height:1.75;font-weight:300}
 .b4 h3{font-size:24px}
 .b4 p{font-size:15px;max-width:440px}
+.bc6-grid{display:grid;grid-template-columns:1fr 1px 1fr;gap:40px;align-items:start;margin-top:4px}
+.bc6-sep{background:var(--b1);align-self:stretch;min-height:120px}
 
 /* ── TECH TICKER ── */
 .dtick{padding:44px 0;border-top:1px solid var(--b1);border-bottom:1px solid var(--b1);overflow:hidden}
@@ -340,6 +347,10 @@ nav{
   background:var(--bg);border:1px solid var(--b1);border-radius:12px;
   padding:13px 16px;color:var(--t);font-size:14px;font-family:inherit;font-weight:300;
   outline:none;appearance:none;transition:border-color .15s,box-shadow .15s;
+}
+.ff select{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239298b8' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center;padding-right:40px;
 }
 .ff input::placeholder,.ff textarea::placeholder{color:var(--m)}
 .ff input:focus,.ff textarea:focus,.ff select:focus{border-color:rgba(224,25,154,.4);box-shadow:0 0 0 3px rgba(224,25,154,.08)}
