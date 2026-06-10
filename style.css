@@ -61,12 +61,12 @@ nav{
   backdrop-filter:blur(28px);
   border-bottom:1px solid var(--b1);
 }
-.nav-row{height:88px;display:flex;align-items:center;justify-content:space-between}
+.nav-row{height:96px;display:flex;align-items:center;justify-content:space-between}
 .nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
-.nav-logo img{height:72px}
+.nav-logo img{height:76px}
 .nav-logo-t{font-size:20px;font-weight:600;color:var(--t)}
 .nav-links{display:flex}
-.nav-links a{font-size:16px;font-weight:400;color:var(--mid);text-decoration:none;padding:8px 18px;transition:color .15s}
+.nav-links a{font-size:32px;font-weight:300;font-family:system-ui,-apple-system,'Helvetica Neue',sans-serif;color:var(--mid);text-decoration:none;padding:8px 20px;transition:color .15s}
 .nav-links a:hover{color:var(--t)}
 .nav-actions{display:flex;align-items:center;gap:16px}
 .lang-sw{display:flex;align-items:center;gap:6px}
