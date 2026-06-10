@@ -518,6 +518,9 @@ footer{border-top:1px solid var(--b1);padding:28px 60px 20px}
   .f2{grid-template-columns:1fr}
   .footer-main{flex-direction:column;align-items:flex-start}
   .footer-legal{gap:12px}
+  /* stats section */
+  .stat-n{font-size:56px}
+  .stat-l{word-break:break-word;overflow-wrap:break-word;}
   /* hero-stats 2×2 */
   .hs{padding:20px 12px;}
   .hs-n{font-size:30px;}
