@@ -12,12 +12,12 @@
   --mx:   50%; --my: 50%;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;overflow-x:hidden}
+html{scroll-behavior:smooth;overflow-x:clip}
 body{
   background:var(--bg);color:var(--t);
   font-family:'Inter',system-ui,sans-serif;
   font-weight:300;-webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
+  overflow-x:clip;
 }
 
 /* cursor spotlight */
@@ -63,10 +63,10 @@ nav{
 }
 .nav-row{height:96px;display:flex;align-items:center;justify-content:space-between}
 .nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
-.nav-logo img{height:76px}
+.nav-logo img{height:76px;transform:translateY(-3px)}
 .nav-logo-t{font-size:20px;font-weight:600;color:var(--t)}
 .nav-links{display:flex}
-.nav-links a{font-size:32px;font-weight:300;font-family:system-ui,-apple-system,'Helvetica Neue',sans-serif;color:var(--mid);text-decoration:none;padding:8px 20px;transition:color .15s}
+.nav-links a{font-size:32px;font-weight:500;font-family:system-ui,-apple-system,'Helvetica Neue',sans-serif;color:var(--mid);text-decoration:none;padding:8px 20px;transition:color .15s}
 .nav-links a:hover{color:var(--t)}
 .nav-actions{display:flex;align-items:center;gap:16px}
 .lang-sw{display:flex;align-items:center;gap:6px}
