@@ -20,13 +20,6 @@ document.addEventListener('mousemove', e => {
   document.documentElement.style.setProperty('--my', e.clientY + 'px');
 }, {passive: true});
 
-// scroll progress bar
-window.addEventListener('scroll', () => {
-  const h = document.documentElement;
-  document.getElementById('bar').style.width =
-    (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%';
-}, {passive: true});
-
 // scroll reveal
 const io = new IntersectionObserver(es => es.forEach(e => {
   if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); }
