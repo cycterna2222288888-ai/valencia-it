@@ -63,7 +63,7 @@ nav{
 }
 .nav-row{height:60px;display:flex;align-items:center;justify-content:space-between}
 .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.nav-logo img{height:40px}
+.nav-logo img{height:54px}
 .nav-logo-t{font-size:15px;font-weight:600;color:var(--t)}
 .nav-links{display:flex}
 .nav-links a{font-size:13px;font-weight:400;color:var(--mid);text-decoration:none;padding:6px 14px;transition:color .15s}
@@ -124,6 +124,13 @@ nav{
 }
 .ticker-dot{width:3px;height:3px;border-radius:50%;background:var(--pk);flex-shrink:0}
 @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* hero background photo */
+.hero-bg{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;pointer-events:none;
+  opacity:.05;mix-blend-mode:multiply;z-index:0;
+}
 
 /* ── HERO ── */
 #hero{
@@ -280,6 +287,16 @@ nav{
 .bc6-grid{display:grid;grid-template-columns:1fr 1px 1fr;gap:40px;align-items:start;margin-top:4px}
 .bc6-sep{background:var(--b1);align-self:stretch;min-height:120px}
 
+/* featured card right-side photo */
+.bc-feat-img{
+  position:absolute;right:0;top:0;bottom:0;width:42%;height:100%;
+  object-fit:cover;border-radius:0 22px 22px 0;
+  pointer-events:none;
+  -webkit-mask:linear-gradient(to right,transparent 0%,rgba(0,0,0,.5) 35%,rgba(0,0,0,.65) 100%);
+  mask:linear-gradient(to right,transparent 0%,rgba(0,0,0,.5) 35%,rgba(0,0,0,.65) 100%);
+  mix-blend-mode:multiply;
+}
+
 /* ── TECH TICKER ── */
 .dtick{padding:44px 0;border-top:1px solid var(--b1);border-bottom:1px solid var(--b1);overflow:hidden}
 .dtick-t{display:flex;width:max-content;animation:tick 24s linear infinite}
@@ -328,6 +345,20 @@ nav{
   border:1px solid var(--b2);border-radius:100px;
   padding:6px 15px;color:var(--mid);background:rgba(0,0,0,.03);
 }
+/* about photo */
+.about-photo-wrap{
+  border-radius:22px;overflow:hidden;margin-bottom:10px;
+  position:relative;box-shadow:0 8px 40px rgba(0,0,0,.12);
+}
+.about-photo{width:100%;height:280px;object-fit:cover;display:block}
+.about-photo-cap{
+  position:absolute;bottom:0;left:0;right:0;
+  background:linear-gradient(to top,rgba(8,10,24,.8) 0%,transparent 100%);
+  padding:32px 28px 22px;color:#fff;
+}
+.about-photo-tag{font-size:10px;letter-spacing:.14em;text-transform:uppercase;opacity:.6;margin-bottom:5px;font-weight:500}
+.about-photo-label{font-size:18px;font-weight:700;letter-spacing:-.01em}
+
 .about-card{background:var(--s1);border:1px solid var(--b1);border-radius:22px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.05)}
 .ac-top{padding:20px 26px;border-bottom:1px solid var(--b1);display:flex;align-items:center;gap:10px}
 .ac-led{width:8px;height:8px;border-radius:50%;background:var(--cy);animation:pulse 2s infinite}
@@ -342,9 +373,27 @@ nav{
 .an-n{font-size:40px;font-weight:800;letter-spacing:-.025em;background:linear-gradient(135deg,var(--pk),var(--cy));background-size:200%;animation:gshift 6s ease infinite;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .an-l{font-size:11px;color:var(--m);margin-top:6px;letter-spacing:.04em;text-transform:uppercase}
 
+/* training banner */
+.tr-banner{
+  border-radius:22px;overflow:hidden;margin-top:48px;
+  height:220px;position:relative;
+  box-shadow:0 8px 40px rgba(0,0,0,.12);
+}
+.tr-banner img{width:100%;height:100%;object-fit:cover;display:block}
+.tr-banner-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(8,10,24,.82) 0%,rgba(212,23,143,.35) 55%,transparent 100%);
+  display:flex;align-items:center;padding:0 48px;
+}
+.tr-banner-text .eyebrow{color:rgba(255,255,255,.55)}
+.tr-banner-text h3{
+  font-size:clamp(22px,2.8vw,36px);font-weight:800;
+  letter-spacing:-.025em;line-height:1.1;color:#fff;margin-top:8px;
+}
+
 /* ── TRAINING ── */
 #training{padding:120px 0;border-top:1px solid var(--b1)}
-.tr-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:56px}
+.tr-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}
 .tr{
   background:var(--s1);border:1px solid var(--b1);border-radius:18px;
   padding:28px 32px;display:flex;justify-content:space-between;align-items:center;gap:20px;
