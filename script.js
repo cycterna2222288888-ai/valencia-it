@@ -1,15 +1,18 @@
 // mobile nav
 const burger = document.getElementById('burger');
 const navMobile = document.getElementById('navMobile');
+const navEl = burger && burger.closest('nav');
 if (burger && navMobile) {
   burger.addEventListener('click', () => {
+    const isOpen = navMobile.classList.toggle('open');
     burger.classList.toggle('open');
-    navMobile.classList.toggle('open');
+    navEl && navEl.classList.toggle('menu-open', isOpen);
   });
   navMobile.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', () => {
       burger.classList.remove('open');
       navMobile.classList.remove('open');
+      navEl && navEl.classList.remove('menu-open');
     });
   });
 }
