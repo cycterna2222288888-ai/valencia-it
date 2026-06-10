@@ -74,7 +74,8 @@ const cio = new IntersectionObserver(es => es.forEach(e => {
 document.querySelectorAll('[data-count]').forEach(el => cio.observe(el));
 
 // form submit feedback
-document.getElementById('sub').addEventListener('click', function () {
+const subBtn = document.getElementById('sub');
+if (subBtn) subBtn.addEventListener('click', function () {
   this.textContent = 'Отправлено ✓';
   this.style.background = 'linear-gradient(135deg,#16a34a,#15803d)';
   this.style.animation = 'none';
