@@ -63,15 +63,48 @@ nav{
 }
 .nav-row{height:60px;display:flex;align-items:center;justify-content:space-between}
 .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.nav-logo img{height:28px}
+.nav-logo img{height:40px}
 .nav-logo-t{font-size:15px;font-weight:600;color:var(--t)}
 .nav-links{display:flex}
 .nav-links a{font-size:13px;font-weight:400;color:var(--mid);text-decoration:none;padding:6px 14px;transition:color .15s}
 .nav-links a:hover{color:var(--t)}
-.lang-sw{display:flex;align-items:center;gap:5px;margin-right:4px}
+.nav-actions{display:flex;align-items:center;gap:12px}
+.lang-sw{display:flex;align-items:center;gap:5px}
 .lang-sw a{font-size:12px;font-weight:600;color:var(--m);text-decoration:none;padding:3px 2px;transition:color .15s}
 .lang-sw a:hover,.lang-sw a.active{color:var(--t)}
 .lang-sep{font-size:11px;color:var(--b2)}
+
+/* hamburger */
+.nav-burger{
+  display:none;flex-direction:column;justify-content:center;gap:5px;
+  background:none;border:none;cursor:pointer;padding:4px;width:32px;height:32px;
+}
+.nav-burger span{
+  display:block;width:22px;height:1.5px;
+  background:var(--t);border-radius:2px;
+  transition:transform .25s cubic-bezier(.16,1,.3,1),opacity .2s;
+}
+.nav-burger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.nav-burger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.nav-burger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+
+/* mobile nav panel */
+.nav-mobile{
+  display:none;flex-direction:column;
+  padding:8px 18px 20px;
+  border-top:1px solid var(--b1);
+}
+.nav-mobile.open{display:flex}
+.nav-mobile a{
+  font-size:16px;font-weight:500;color:var(--mid);text-decoration:none;
+  padding:13px 0;border-bottom:1px solid var(--b1);transition:color .15s;
+}
+.nav-mobile a:last-child{border-bottom:none}
+.nav-mobile a:hover{color:var(--t)}
+.nav-mobile .nav-cta{
+  display:block;text-align:center;margin-top:10px;
+  border-bottom:none;padding:13px 22px;
+}
 
 .nav-cta{
   font-size:13px;font-weight:600;color:#fff;text-decoration:none;
@@ -364,10 +397,24 @@ nav{
 }
 .f-sub:hover{opacity:.88;transform:translateY(-2px);box-shadow:0 12px 40px rgba(224,25,154,.35)}
 
+/* consent checkbox */
+.consent-wrap{display:flex;align-items:flex-start;gap:10px;margin:4px 0 16px}
+.consent-wrap input[type="checkbox"]{
+  width:16px;height:16px;flex-shrink:0;margin-top:2px;
+  accent-color:var(--pk);cursor:pointer;
+}
+.consent-wrap label{font-size:12px;color:var(--mid);line-height:1.6;cursor:pointer}
+.consent-wrap a{color:var(--cy);text-decoration:none}
+.consent-wrap a:hover{text-decoration:underline}
+
 /* ── FOOTER ── */
-footer{border-top:1px solid var(--b1);padding:32px 60px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+footer{border-top:1px solid var(--b1);padding:28px 60px 20px}
+.footer-main{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;padding-bottom:20px}
+.footer-legal{border-top:1px solid var(--b1);padding-top:16px;display:flex;gap:24px;flex-wrap:wrap}
+.footer-legal a{font-size:11px;color:var(--m);text-decoration:none;transition:color .15s}
+.footer-legal a:hover{color:var(--mid)}
 .fl{display:flex;align-items:center;gap:10px}
-.fl img{height:22px}
+.fl img{height:28px}
 .fl span{font-size:13px;font-weight:500;color:var(--mid)}
 .fc{font-size:11px;color:var(--m)}
 .flinks{display:flex;gap:20px}
@@ -394,10 +441,16 @@ footer{border-top:1px solid var(--b1);padding:32px 60px;display:flex;justify-con
   .w{padding:0 18px}
   #hero{padding:90px 18px 70px}
   .nav-links{display:none}
+  .nav-cta{display:none}
+  .lang-sw{display:none}
+  .nav-burger{display:flex}
   .bento{grid-template-columns:1fr}
   .b6,.b4,.b3,.b2{grid-column:span 1}
+  .bc6-grid{grid-template-columns:1fr;gap:24px}
+  .bc6-sep{display:none}
   .stats-wrap{grid-template-columns:1fr 1fr}
   .f2{grid-template-columns:1fr}
-  footer{flex-direction:column;align-items:flex-start}
+  .footer-main{flex-direction:column;align-items:flex-start}
+  .footer-legal{gap:12px}
   .stat-n{font-size:56px}
 }

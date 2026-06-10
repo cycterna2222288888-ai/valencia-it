@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet"/>
   <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
   <link rel="stylesheet" href="style.css"/>
+  <noscript><style>.r,.r2{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
 <div id="bar"></div>
@@ -26,11 +27,23 @@
       <a href="#training">Обучение</a>
       <a href="#contact">Контакты</a>
     </div>
-    <div class="lang-sw">
-      <a href="index.html" class="active">RU</a>
-      <span class="lang-sep">·</span>
-      <a href="en.html">EN</a>
+    <div class="nav-actions">
+      <div class="lang-sw">
+        <a href="index.html" class="active">RU</a>
+        <span class="lang-sep">·</span>
+        <a href="en.html">EN</a>
+      </div>
+      <a href="#contact" class="nav-cta">Начать проект</a>
+      <button class="nav-burger" id="burger" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+  </div>
+  <div class="nav-mobile" id="navMobile">
+    <a href="#services">Услуги</a>
+    <a href="#about">О нас</a>
+    <a href="#training">Обучение</a>
+    <a href="#contact">Контакты</a>
     <a href="#contact" class="nav-cta">Начать проект</a>
   </div>
 </nav>
@@ -328,6 +341,10 @@
           </select>
         </div>
         <div class="ff"><label>Сообщение</label><textarea placeholder="Опишите задачу…"></textarea></div>
+        <div class="consent-wrap">
+          <input type="checkbox" id="consent" required/>
+          <label for="consent">Я согласен на обработку персональных данных согласно <a href="#">политике конфиденциальности</a></label>
+        </div>
         <button class="f-sub" id="sub">Отправить сообщение</button>
       </div>
     </div>
@@ -336,12 +353,19 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="fl"><img src="favicon.svg" alt="Valencia IT"/><span>Valencia IT Solutions</span></div>
-  <p class="fc">© 2026 Valencia IT Solutions. Все права защищены.</p>
-  <div class="flinks">
-    <a href="#services">Услуги</a>
-    <a href="#training">Обучение</a>
-    <a href="mailto:info@valencia-it.am">Email</a>
+  <div class="footer-main">
+    <div class="fl"><img src="favicon.svg" alt="Valencia IT"/><span>Valencia IT Solutions</span></div>
+    <p class="fc">© 2026 Valencia IT Solutions. Все права защищены.</p>
+    <div class="flinks">
+      <a href="#services">Услуги</a>
+      <a href="#training">Обучение</a>
+      <a href="mailto:info@valencia-it.am">Email</a>
+    </div>
+  </div>
+  <div class="footer-legal">
+    <a href="#">Пользовательское соглашение</a>
+    <a href="#">Политика конфиденциальности</a>
+    <a href="#">Использование cookie</a>
   </div>
 </footer>
 

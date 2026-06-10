@@ -1,3 +1,19 @@
+// mobile nav
+const burger = document.getElementById('burger');
+const navMobile = document.getElementById('navMobile');
+if (burger && navMobile) {
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('open');
+    navMobile.classList.toggle('open');
+  });
+  navMobile.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      burger.classList.remove('open');
+      navMobile.classList.remove('open');
+    });
+  });
+}
+
 // cursor spotlight
 document.addEventListener('mousemove', e => {
   document.documentElement.style.setProperty('--mx', e.clientX + 'px');
