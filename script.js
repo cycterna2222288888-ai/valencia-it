@@ -18,9 +18,11 @@ if (burger && navMobile) {
 }
 
 // scroll progress bar
+const barEl = document.getElementById('bar');
 window.addEventListener('scroll', () => {
+  if (!barEl) return;
   const h = document.documentElement;
-  document.getElementById('bar').style.width =
+  barEl.style.width =
     (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%';
 }, {passive: true});
 
