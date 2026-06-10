@@ -14,6 +14,13 @@ if (burger && navMobile) {
   });
 }
 
+// scroll progress bar
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  document.getElementById('bar').style.width =
+    (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%';
+}, {passive: true});
+
 // cursor spotlight
 document.addEventListener('mousemove', e => {
   document.documentElement.style.setProperty('--mx', e.clientX + 'px');
