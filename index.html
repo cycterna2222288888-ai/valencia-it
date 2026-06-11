@@ -338,12 +338,12 @@
       <div class="form-box r" style="transition-delay:.14s">
         <div class="form-t">Отправить сообщение</div>
         <div class="f2">
-          <div class="ff"><label>Имя</label><input type="text" placeholder="Иван"/></div>
-          <div class="ff"><label>Фамилия</label><input type="text" placeholder="Петров"/></div>
+          <div class="ff"><label>Имя</label><input type="text" name="name" placeholder="Иван"/></div>
+          <div class="ff"><label>Фамилия</label><input type="text" name="surname" placeholder="Петров"/></div>
         </div>
-        <div class="ff"><label>Email</label><input type="email" placeholder="ivan@company.com"/></div>
+        <div class="ff"><label>Email</label><input type="email" name="email" placeholder="ivan@company.com"/></div>
         <div class="ff"><label>Услуга</label>
-          <select>
+          <select name="service">
             <option value="">Выберите…</option>
             <option>Инфраструктура и бэкап</option>
             <option>Базы данных</option>
@@ -356,7 +356,7 @@
             <option>Другое</option>
           </select>
         </div>
-        <div class="ff"><label>Сообщение</label><textarea placeholder="Опишите задачу…"></textarea></div>
+        <div class="ff"><label>Сообщение</label><textarea name="message" placeholder="Опишите задачу…"></textarea></div>
         <div class="consent-wrap">
           <input type="checkbox" id="consent" required/>
           <label for="consent">Я согласен на обработку персональных данных согласно <a href="privacy.html">политике конфиденциальности</a></label>

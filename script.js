@@ -87,15 +87,61 @@ const cio = new IntersectionObserver(es => es.forEach(e => {
 }), {threshold: .5});
 document.querySelectorAll('[data-count]').forEach(el => cio.observe(el));
 
-// form submit feedback
+// form submit
 const subBtn = document.getElementById('sub');
-if (subBtn) subBtn.addEventListener('click', function () {
-  this.textContent = 'Отправлено ✓';
-  this.style.background = 'linear-gradient(135deg,#16a34a,#15803d)';
-  this.style.animation = 'none';
-  setTimeout(() => {
-    this.textContent = 'Отправить сообщение';
-    this.style.background = '';
-    this.style.animation = '';
-  }, 3000);
+if (subBtn) subBtn.addEventListener('click', async function () {
+  const consent = document.getElementById('consent');
+  if (consent && !consent.checked) {
+    consent.closest('.consent-wrap').style.outline = '2px solid #e03030';
+    return;
+  }
+
+  const fields = { name: '', surname: '', email: '', service: '', message: '' };
+  const form   = subBtn.closest('.form-box');
+  if (form) {
+    Object.keys(fields).forEach(key => {
+      const el = form.querySelector('[name="' + key + '"]');
+      if (el) fields[key] = el.value.trim();
+    });
+  }
+
+  if (!fields.name || !fields.email || !fields.message) {
+    Object.keys(fields).forEach(key => {
+      if (!fields[key] && key !== 'surname' && key !== 'service') {
+        const el = form && form.querySelector('[name="' + key + '"]');
+        if (el) el.style.outline = '2px solid #e03030';
+      }
+    });
+    return;
+  }
+
+  const btn = this;
+  btn.disabled  = true;
+  btn.textContent = '...';
+
+  try {
+    const body = new URLSearchParams(fields);
+    const res  = await fetch('contact.php', { method: 'POST', body });
+    const json = await res.json();
+
+    if (json.success) {
+      btn.textContent = 'Отправлено ✓';
+      btn.style.background = 'linear-gradient(135deg,#16a34a,#15803d)';
+      if (form) form.querySelectorAll('input,textarea,select').forEach(el => { el.value = ''; el.style.outline = ''; });
+      if (consent) consent.checked = false;
+      setTimeout(() => {
+        btn.textContent = 'Отправить сообщение';
+        btn.style.background = '';
+        btn.disabled = false;
+      }, 4000);
+    } else {
+      btn.textContent = json.error || 'Ошибка';
+      btn.style.background = 'linear-gradient(135deg,#e03030,#b02020)';
+      setTimeout(() => { btn.textContent = 'Отправить сообщение'; btn.style.background = ''; btn.disabled = false; }, 3000);
+    }
+  } catch {
+    btn.textContent = 'Ошибка соединения';
+    btn.style.background = 'linear-gradient(135deg,#e03030,#b02020)';
+    setTimeout(() => { btn.textContent = 'Отправить сообщение'; btn.style.background = ''; btn.disabled = false; }, 3000);
+  }
 });

@@ -339,12 +339,12 @@
       <div class="form-box r" style="transition-delay:.14s">
         <div class="form-t">Send a Message</div>
         <div class="f2">
-          <div class="ff"><label>First Name</label><input type="text" placeholder="John"/></div>
-          <div class="ff"><label>Last Name</label><input type="text" placeholder="Smith"/></div>
+          <div class="ff"><label>First Name</label><input type="text" name="name" placeholder="John"/></div>
+          <div class="ff"><label>Last Name</label><input type="text" name="surname" placeholder="Smith"/></div>
         </div>
-        <div class="ff"><label>Email</label><input type="email" placeholder="john@company.com"/></div>
+        <div class="ff"><label>Email</label><input type="email" name="email" placeholder="john@company.com"/></div>
         <div class="ff"><label>Service</label>
-          <select>
+          <select name="service">
             <option value="">Select…</option>
             <option>Infrastructure &amp; Backup</option>
             <option>Databases</option>
@@ -357,7 +357,7 @@
             <option>Other</option>
           </select>
         </div>
-        <div class="ff"><label>Message</label><textarea placeholder="Describe your project…"></textarea></div>
+        <div class="ff"><label>Message</label><textarea name="message" placeholder="Describe your project…"></textarea></div>
         <div class="consent-wrap">
           <input type="checkbox" id="consent" required/>
           <label for="consent">I agree to the processing of personal data in accordance with the <a href="privacy.html">privacy policy</a></label>
