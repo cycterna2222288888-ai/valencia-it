@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>О компании — Valencia IT Solutions</title>
+  <meta name="description" content="О компании Valencia IT Solutions"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    /* ─── SubMenu page ─────────────────────────────────── */
+    .sp-hero {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 72px 60px 36px;
+    }
+    .sp-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--m);
+      margin-bottom: 12px;
+    }
+    .sp-breadcrumb a { color: var(--m); text-decoration: none; }
+    .sp-breadcrumb a:hover { color: var(--t); }
+    .sp-breadcrumb-sep { opacity: .35; }
+    .sp-page-title {
+      font-size: clamp(26px, 3.5vw, 42px);
+      font-weight: 800;
+      letter-spacing: -.03em;
+    }
+    .sp-divider { border: none; border-top: 1px solid var(--b1); }
+
+    .sp-layout {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 48px 60px 120px;
+      display: grid;
+      grid-template-columns: 230px 1fr;
+      gap: 52px;
+      align-items: start;
+    }
+
+    /* ─── Sidebar ──────────────────────────────────────── */
+    .sp-sidebar {
+      position: sticky;
+      top: 92px;
+    }
+    .sp-sidebar-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      color: var(--m);
+      padding: 0 0 10px;
+      border-bottom: 1px solid var(--b1);
+      margin-bottom: 6px;
+    }
+    .sp-nav { display: flex; flex-direction: column; gap: 1px; }
+
+    .sp-nav a {
+      display: block;
+      padding: 9px 12px;
+      border-radius: 7px;
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--mid);
+      text-decoration: none;
+      cursor: pointer;
+      transition: color .15s, background .15s;
+      border-left: 2px solid transparent;
+    }
+    .sp-nav a:hover { color: var(--t); background: var(--s2); }
+
+    .sp-nav a.active {
+      color: var(--t);
+      font-weight: 600;
+      background: none;
+      border-left-color: var(--pk);
+      border-radius: 0 7px 7px 0;
+      padding-left: 10px;
+    }
+    .sp-nav hr { border: none; border-top: 1px solid var(--b1); margin: 6px 0; }
+    .sp-nav a.sp-section {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--m);
+      padding: 8px 12px 4px;
+      cursor: default;
+      pointer-events: none;
+    }
+    .sp-nav a.sp-section:hover { background: none; }
+    .sp-nav a.sp-sub { padding-left: 20px; font-size: 13.5px; }
+    .sp-nav a.sp-sub.active { padding-left: 18px; }
+
+    /* ─── Content panels ───────────────────────────────── */
+    .sp-panel { display: none; }
+    .sp-panel.visible { display: block; }
+
+    .sp-panel h1 {
+      font-size: clamp(22px, 2.6vw, 36px);
+      font-weight: 800;
+      letter-spacing: -.03em;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .sp-panel h2 {
+      font-size: clamp(17px, 1.8vw, 22px);
+      font-weight: 700;
+      letter-spacing: -.02em;
+      margin: 40px 0 12px;
+    }
+    .sp-panel h3 { font-size: 16px; font-weight: 600; margin: 24px 0 8px; }
+    .sp-panel p {
+      font-size: 15.5px;
+      line-height: 1.85;
+      color: var(--mid);
+      margin-bottom: 16px;
+    }
+    .sp-panel ul, .sp-panel ol {
+      padding-left: 20px;
+      margin-bottom: 16px;
+    }
+    .sp-panel li {
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: var(--mid);
+      margin-bottom: 5px;
+    }
+    .sp-panel strong { color: var(--t); font-weight: 600; }
+    .sp-panel a.text-link {
+      color: var(--pk);
+      text-decoration: underline;
+      text-decoration-color: rgba(212,23,143,.25);
+      text-underline-offset: 3px;
+    }
+    .sp-panel a.text-link:hover { text-decoration-color: var(--pk); }
+
+    /* Cards */
+    .sp-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      gap: 12px;
+      margin: 20px 0 32px;
+    }
+    .sp-card {
+      background: var(--s1);
+      border: 1px solid var(--b1);
+      border-radius: 12px;
+      padding: 18px;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .sp-card:hover {
+      border-color: rgba(212,23,143,.2);
+      box-shadow: 0 4px 16px rgba(212,23,143,.05);
+    }
+    .sp-card-title { font-size: 14px; font-weight: 600; color: var(--t); margin-bottom: 5px; }
+    .sp-card-body { font-size: 13px; color: var(--m); line-height: 1.55; }
+
+    /* CTA */
+    .sp-cta {
+      margin-top: 44px;
+      padding: 24px 28px;
+      background: var(--s1);
+      border: 1px solid var(--b1);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .sp-cta-text { font-size: 16px; font-weight: 700; color: var(--t); }
+    .sp-cta-sub { font-size: 13px; color: var(--m); margin-top: 3px; }
+    .btn-sm {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+      text-decoration: none;
+      background: linear-gradient(135deg, var(--pk), var(--cy));
+      padding: 12px 28px;
+      border-radius: 100px;
+      white-space: nowrap;
+      transition: opacity .15s, transform .15s;
+    }
+    .btn-sm:hover { opacity: .87; transform: translateY(-1px); }
+
+    /* Mobile */
+    @media (max-width: 860px) {
+      .sp-hero { padding: 56px 24px 28px; }
+      .sp-layout { grid-template-columns: 1fr; gap: 0; padding: 0 24px 80px; }
+      .sp-sidebar { position: static; padding-bottom: 28px; border-bottom: 1px solid var(--b1); margin-bottom: 32px; }
+      .sp-nav { flex-direction: row; flex-wrap: wrap; gap: 4px; }
+      .sp-nav a { font-size: 13px; padding: 6px 12px; border-left: none; border-radius: 8px; }
+      .sp-nav a.active { border-left: none; border-bottom: 2px solid var(--pk); border-radius: 8px 8px 0 0; padding-left: 12px; }
+      .sp-nav a.sp-section { display: none; }
+      .sp-nav hr { display: none; }
+      .sp-cta { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 500px) {
+      .sp-cards { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div id="bar"></div>
+
+<nav>
+  <div class="nav-row">
+    <a href="index.html" class="nav-logo">
+      <img src="favicon.svg" alt="Valencia IT"/>
+      <span class="nav-logo-t">Valencia IT</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html#services">Услуги</a>
+      <a href="index.html#about">О нас</a>
+      <a href="index.html#training">Обучение</a>
+      <a href="index.html#contact">Контакты</a>
+    </div>
+    <div class="nav-actions">
+      <div class="lang-sw">
+        <a href="submenu-page.html" class="active">RU</a>
+        <span class="lang-sep">·</span>
+        <a href="en.html">EN</a>
+        <span class="lang-sep">·</span>
+        <a href="am.html">AM</a>
+      </div>
+      <a href="index.html#contact" class="nav-cta">Начать проект</a>
+      <button class="nav-burger" id="burger" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="nav-mobile" id="navMobile">
+    <a href="index.html#services">Услуги</a>
+    <a href="index.html#about">О нас</a>
+    <a href="index.html#training">Обучение</a>
+    <a href="index.html#contact">Контакты</a>
+    <a href="index.html#contact" class="nav-cta">Начать проект</a>
+  </div>
+</nav>
+
+<!-- breadcrumb + title — обновляется через JS -->
+<div class="sp-hero">
+  <div class="sp-breadcrumb">
+    <a href="index.html">Главная</a>
+    <span class="sp-breadcrumb-sep">›</span>
+    <span id="bc-section">О компании</span>
+    <span class="sp-breadcrumb-sep" id="bc-sub-sep">›</span>
+    <span id="bc-sub">Корпоративное управление</span>
+  </div>
+  <h1 class="sp-page-title" id="page-title">Корпоративное управление</h1>
+</div>
+<hr class="sp-divider"/>
+
+<div class="sp-layout">
+
+  <!-- ─── SIDEBAR ──────────────────────────────────────── -->
+  <aside class="sp-sidebar">
+    <div class="sp-sidebar-label">О компании</div>
+    <nav class="sp-nav" id="sp-nav">
+
+      <a data-panel="about-valencia" class="sp-sub">О Valencia IT</a>
+      <a data-panel="corporate" class="sp-sub active">Корпоративное управление</a>
+      <a data-panel="experience" class="sp-sub">Успешный опыт</a>
+      <a data-panel="partners" class="sp-sub">Деловые партнеры</a>
+
+      <hr/>
+
+      <a href="index.html#services">Решения</a>
+      <a href="index.html#training">Обучение</a>
+      <a href="index.html#contact">Контакты</a>
+
+    </nav>
+  </aside>
+
+  <!-- ─── CONTENT PANELS ───────────────────────────────── -->
+  <main>
+
+    <!-- О Valencia IT -->
+    <article class="sp-panel" id="panel-about-valencia">
+      <h1>О Valencia IT</h1>
+      <p>Valencia IT — международная IT-компания, основанная в 2018 году. Мы работаем в более чем 10 странах и помогаем бизнесу строить надёжную IT-инфраструктуру, внедрять облачные решения и обеспечивать кибербезопасность.</p>
+      <p>Наша команда сочетает глубокую экспертизу в локальных рынках с международными стандартами работы. Мы берём ответственность за весь жизненный цикл проекта — от первичного анализа до долгосрочной поддержки.</p>
+
+      <h2>Направления деятельности</h2>
+      <div class="sp-cards">
+        <div class="sp-card">
+          <div class="sp-card-title">Инфраструктура</div>
+          <div class="sp-card-body">Проектирование, развёртывание и поддержка корпоративных IT-систем.</div>
+        </div>
+        <div class="sp-card">
+          <div class="sp-card-title">Облачные решения</div>
+          <div class="sp-card-body">Миграция и управление в среде AWS, Azure, GCP.</div>
+        </div>
+        <div class="sp-card">
+          <div class="sp-card-title">Кибербезопасность</div>
+          <div class="sp-card-body">Аудит, SIEM, защита конечных точек, соответствие регулятору.</div>
+        </div>
+        <div class="sp-card">
+          <div class="sp-card-title">Обучение</div>
+          <div class="sp-card-body">Онлайн-курсы по Linux, DevOps, сетям и безопасности.</div>
+        </div>
+      </div>
+
+      <h2>Цифры</h2>
+      <ul>
+        <li><strong>2018</strong> — год основания</li>
+        <li><strong>10+</strong> стран присутствия</li>
+        <li><strong>9</strong> направлений услуг</li>
+        <li><strong>24/7</strong> поддержка клиентов</li>
+      </ul>
+
+      <div class="sp-cta">
+        <div>
+          <div class="sp-cta-text">Хотите узнать больше?</div>
+          <div class="sp-cta-sub">Свяжитесь с нами — ответим в течение рабочего дня.</div>
+        </div>
+        <a href="index.html#contact" class="btn-sm">Написать нам</a>
+      </div>
+    </article>
+
+    <!-- Корпоративное управление -->
+    <article class="sp-panel visible" id="panel-corporate">
+      <h1>Корпоративное управление</h1>
+      <p>Valencia IT придерживается прозрачных принципов управления и высоких стандартов корпоративной этики. Наша структура позволяет принимать решения быстро и ответственно на всех уровнях организации.</p>
+
+      <h2>Структура управления</h2>
+      <div class="sp-cards">
+        <div class="sp-card">
+          <div class="sp-card-title">Совет директоров</div>
+          <div class="sp-card-body">Стратегическое руководство и определение приоритетов развития.</div>
+        </div>
+        <div class="sp-card">
+          <div class="sp-card-title">Исполнительный комитет</div>
+          <div class="sp-card-body">Операционное управление и реализация стратегии.</div>
+        </div>
+        <div class="sp-card">
+          <div class="sp-card-title">Комитет по аудиту</div>
+          <div class="sp-card-body">Финансовый контроль и соответствие требованиям регуляторов.</div>
+        </div>
+      </div>
+
+      <h2>Принципы работы</h2>
+      <ul>
+        <li><strong>Прозрачность</strong> — открытая отчётность перед клиентами и партнёрами</li>
+        <li><strong>Ответственность</strong> — чёткое распределение зон ответственности</li>
+        <li><strong>Стандарты</strong> — ISO, GDPR и локальные регуляторные требования</li>
+        <li><strong>Этика</strong> — единый кодекс поведения во всех регионах присутствия</li>
+      </ul>
+
+      <h2>Документы</h2>
+      <ul>
+        <li><a href="#" class="text-link">Устав компании (PDF)</a></li>
+        <li><a href="#" class="text-link">Кодекс корпоративной этики (PDF)</a></li>
+        <li><a href="privacy.html" class="text-link">Политика конфиденциальности</a></li>
+      </ul>
+
+      <div class="sp-cta">
+        <div>
+          <div class="sp-cta-text">Остались вопросы?</div>
+          <div class="sp-cta-sub">Ответим в течение рабочего дня.</div>
+        </div>
+        <a href="index.html#contact" class="btn-sm">Написать нам</a>
+      </div>
+    </article>
+
+    <!-- Успешный опыт -->
+    <article class="sp-panel" id="panel-experience">
+      <h1>Успешный опыт</h1>
+      <p>За годы работы Valencia IT реализовала проекты для компаний из разных отраслей — от телекоммуникаций и финансов до ритейла и государственного сектора.</p>
+
+      <h2>Кейсы</h2>
+      <div class="sp-cards">
+        <div class="sp-card">
+          <div class="sp-card-title">Миграция в облако</div>
+          <div class="sp-card-body">Перевод on-premise инфраструктуры на AWS для телеком-оператора. Сокращение затрат на 35%.</div>
+        </div>
+        <div class="sp-card">
+          <div class="sp-card-title">Кибербезопасность</div>
+          <div class="sp-card-body">Внедрение SIEM и SOC для банковской группы в Армении и Грузии.</div>
+        </div>
+        <div class="sp-card">
+          <div class="sp-card-title">DevOps-трансформация</div>
+          <div class="sp-card-body">Построение CI/CD pipeline и переход на Kubernetes для e-commerce платформы.</div>
+        </div>
+      </div>
+
+      <h2>Отрасли</h2>
+      <ul>
+        <li>Телекоммуникации и медиа</li>
+        <li>Финансовый сектор и банки</li>
+        <li>Ритейл и e-commerce</li>
+        <li>Государственные структуры</li>
+        <li>Производство и логистика</li>
+      </ul>
+
+      <div class="sp-cta">
+        <div>
+          <div class="sp-cta-text">Хотите похожий результат?</div>
+          <div class="sp-cta-sub">Расскажем подробнее на встрече.</div>
+        </div>
+        <a href="index.html#contact" class="btn-sm">Написать нам</a>
+      </div>
+    </article>
+
+    <!-- Деловые партнеры -->
+    <article class="sp-panel" id="panel-partners">
+      <h1>Деловые партнеры</h1>
+      <p>Valencia IT сотрудничает с ведущими мировыми вендорами и технологическими компаниями. Партнёрские статусы позволяют нам предлагать клиентам лучшие условия и приоритетную поддержку.</p>
+
+      <h2>Технологические партнёры</h2>
+      <div class="sp-cards">
+        <div class="sp-card">
+          <div class="sp-card-title">Amazon Web Services</div>
+          <div class="sp-card-body">Авторизованный партнёр по облачным решениям и миграции.</div>
+        </div>
+        <div class="sp-card">
+          <div class="sp-card-title">Microsoft Azure</div>
+          <div class="sp-card-body">Сертифицированный партнёр по Azure Cloud и Microsoft 365.</div>
+        </div>
+        <div class="sp-card">
+          <div class="sp-card-title">Google Cloud</div>
+          <div class="sp-card-body">Партнёр по GCP — инфраструктура, аналитика, ML.</div>
+        </div>
+        <div class="sp-card">
+          <div class="sp-card-title">Cisco</div>
+          <div class="sp-card-body">Авторизованный реселлер и системный интегратор сетевых решений.</div>
+        </div>
+      </div>
+
+      <h2>Стать партнёром</h2>
+      <p>Если вы хотите стать партнёром Valencia IT или предложить сотрудничество — напишите нам. Мы открыты к диалогу с системными интеграторами, вендорами и реселлерами.</p>
+
+      <div class="sp-cta">
+        <div>
+          <div class="sp-cta-text">Предложить сотрудничество</div>
+          <div class="sp-cta-sub">Рассмотрим в течение 2 рабочих дней.</div>
+        </div>
+        <a href="index.html#contact" class="btn-sm">Написать нам</a>
+      </div>
+    </article>
+
+  </main>
+</div>
+
+<footer>
+  <div class="footer-main">
+    <div class="fl"><img src="favicon.svg" alt="Valencia IT"/><span>Valencia IT Solutions</span></div>
+    <p class="fc">© 2026 Valencia IT Solutions. Все права защищены.</p>
+    <div class="flinks">
+      <a href="index.html#services">Услуги</a>
+      <a href="index.html#training">Обучение</a>
+      <a href="mailto:info@valencia-it.am">Email</a>
+    </div>
+  </div>
+  <div class="footer-legal">
+    <a href="terms.html">Пользовательское соглашение</a>
+    <a href="privacy.html">Политика конфиденциальности</a>
+    <a href="cookies.html">Использование cookie</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+  // SubMenu navigation — switch panels without page reload
+  const panels = {
+    'about-valencia': { sub: 'О Valencia IT',               title: 'О Valencia IT',               showSub: true  },
+    'corporate':      { sub: 'Корпоративное управление',    title: 'Корпоративное управление',    showSub: true  },
+    'experience':     { sub: 'Успешный опыт',               title: 'Успешный опыт',               showSub: true  },
+    'partners':       { sub: 'Деловые партнеры',            title: 'Деловые партнеры',            showSub: true  },
+  };
+
+  function activatePanel(key) {
+    // Update sidebar active state
+    document.querySelectorAll('#sp-nav a[data-panel]').forEach(a => {
+      a.classList.toggle('active', a.dataset.panel === key);
+    });
+
+    // Show/hide panels
+    document.querySelectorAll('.sp-panel').forEach(p => {
+      p.classList.toggle('visible', p.id === 'panel-' + key);
+    });
+
+    // Update breadcrumb + title
+    const cfg = panels[key];
+    if (cfg) {
+      const bcSub   = document.getElementById('bc-sub');
+      const bcSep   = document.getElementById('bc-sub-sep');
+      const pgTitle = document.getElementById('page-title');
+      if (cfg.showSub) {
+        bcSub.textContent  = cfg.sub;
+        bcSep.style.display = '';
+        bcSub.style.display = '';
+      } else {
+        bcSep.style.display = 'none';
+        bcSub.style.display = 'none';
+      }
+      pgTitle.textContent = cfg.title;
+    }
+
+    // Scroll to top of content
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // Update URL hash without page jump
+    history.replaceState(null, '', '#' + key);
+  }
+
+  // Bind sidebar links
+  document.querySelectorAll('#sp-nav a[data-panel]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      activatePanel(a.dataset.panel);
+    });
+  });
+
+  // Restore from hash on load
+  const hash = location.hash.replace('#', '');
+  if (panels[hash]) activatePanel(hash);
+</script>
+</body>
+</html>
