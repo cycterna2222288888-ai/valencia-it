@@ -102,6 +102,8 @@ nav{
 }
 .nav-mobile a:last-child{border-bottom:none}
 .nav-mobile a:hover{color:var(--t)}
+.nav-mobile .lang-sw{display:flex;padding:13px 0;border-bottom:1px solid var(--b1)}
+.nav-mobile .lang-sw a{font-size:15px;font-weight:600;padding:0;border-bottom:none}
 .nav-mobile .nav-cta{
   display:block;text-align:center;margin-top:10px;
   border-bottom:none;padding:13px 22px;
@@ -487,7 +489,15 @@ footer{border-top:1px solid var(--b1);padding:28px 60px 20px}
 .flinks a:hover{color:var(--mid)}
 
 /* ── RESPONSIVE ── */
+@media(max-width:1200px){
+  .nav-links a{font-size:20px;padding:6px 12px}
+}
 @media(max-width:900px){
+  .nav-links{display:none}
+  .nav-cta{display:none}
+  .lang-sw{display:none}
+  .nav-burger{display:flex}
+  .nav-mobile .lang-sw{display:flex}
   nav,footer{padding-left:28px;padding-right:28px}
   .w{padding:0 28px}
   #hero{padding-left:28px;padding-right:28px}

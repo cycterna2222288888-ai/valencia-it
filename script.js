@@ -90,45 +90,56 @@ document.querySelectorAll('[data-count]').forEach(el => cio.observe(el));
 // form submit
 const subBtn = document.getElementById('sub');
 if (subBtn) subBtn.addEventListener('click', async function () {
-  const consent = document.getElementById('consent');
-  if (consent && !consent.checked) {
-    consent.closest('.consent-wrap').style.outline = '2px solid #e03030';
+  const consentEl = document.getElementById('consent-pdn');
+  if (consentEl && !consentEl.checked) {
+    consentEl.closest('.consent-wrap').style.outline = '2px solid #e03030';
     return;
   }
 
+  const formEl = subBtn.closest('form');
+  const required = ['name', 'surname', 'email', 'service'];
   const fields = { name: '', surname: '', email: '', service: '', message: '' };
-  const form   = subBtn.closest('.form-box');
-  if (form) {
+  if (formEl) {
     Object.keys(fields).forEach(key => {
-      const el = form.querySelector('[name="' + key + '"]');
+      const el = formEl.querySelector('[name="' + key + '"]');
       if (el) fields[key] = el.value.trim();
     });
   }
 
-  if (!fields.name || !fields.email || !fields.message) {
-    Object.keys(fields).forEach(key => {
-      if (!fields[key] && key !== 'surname' && key !== 'service') {
-        const el = form && form.querySelector('[name="' + key + '"]');
-        if (el) el.style.outline = '2px solid #e03030';
-      }
-    });
-    return;
-  }
+  let valid = true;
+  required.forEach(key => {
+    if (!fields[key]) {
+      valid = false;
+      const el = formEl && formEl.querySelector('[name="' + key + '"]');
+      if (el) el.style.outline = '2px solid #e03030';
+    }
+  });
+  if (!valid) return;
 
   const btn = this;
-  btn.disabled  = true;
+  btn.disabled = true;
   btn.textContent = '...';
 
   try {
     const body = new URLSearchParams(fields);
-    const res  = await fetch('contact.php', { method: 'POST', body });
+    body.append('send', '1');
+    body.append('consent-pdn', '1');
+    const action = formEl ? formEl.action : '/contact/';
+    const res = await fetch(action, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'X-Requested-With': 'XMLHttpRequest'
+      },
+      body
+    });
     const json = await res.json();
 
     if (json.success) {
       btn.textContent = 'Отправлено ✓';
       btn.style.background = 'linear-gradient(135deg,#16a34a,#15803d)';
-      if (form) form.querySelectorAll('input,textarea,select').forEach(el => { el.value = ''; el.style.outline = ''; });
-      if (consent) consent.checked = false;
+      if (formEl) formEl.querySelectorAll('input,textarea,select').forEach(el => { el.value = ''; el.style.outline = ''; });
+      if (consentEl) consentEl.checked = false;
       setTimeout(() => {
         btn.textContent = 'Отправить сообщение';
         btn.style.background = '';
