@@ -141,7 +141,7 @@ if(isset($breadcrumbs))
 	echo '<hr class="sp-divider"/>';
 }
 ?>
-<div class="sp-layout">
+<div class="sp-layout<?php echo (isset($data['submenu']) && !empty($data['submenu'])) ? ' has-sidebar' : ''; ?>">
 	<!-- SIDEBAR -->
 	<?php if(isset($data['submenu']) && !empty($data['submenu'])): ?>
 	<aside class="sp-sidebar">
