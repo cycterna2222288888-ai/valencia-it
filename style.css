@@ -484,7 +484,7 @@ nav.menu-open + .ticker{display:none}
 .sp-divider{border:none;border-top:1px solid var(--b1);margin:0}
 .sp-layout{max-width:1260px;margin:0 auto;padding:48px 60px 80px}
 .sp-layout.has-sidebar{display:grid;grid-template-columns:220px 1fr;gap:56px;align-items:start}
-.sp-sidebar{position:sticky;top:108px}
+.sp-sidebar{position:sticky;top:108px;align-self:start;height:fit-content}
 .sp-sidebar-label{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--m);margin-bottom:12px}
 .sp-nav{display:flex;flex-direction:column;gap:2px}
 .sp-sub{display:block;font-size:15px;font-weight:500;color:var(--mid);text-decoration:none;padding:9px 14px;border-radius:8px;transition:color .15s,background .15s}
