@@ -56,7 +56,7 @@ body::after{
 
 /* ── NAV ── */
 nav{
-  position:sticky;top:0;z-index:200;
+  position:sticky;top:0;z-index:1000;
   padding:0 60px;
   background:rgba(248,249,252,.85);
   backdrop-filter:blur(28px);
@@ -541,7 +541,7 @@ footer{border-top:1px solid var(--b1);padding:28px 60px 20px}
   #hero{padding-left:28px;padding-right:28px}
   .sp-hero{padding:24px 28px 0}
   .sp-layout,.sp-layout.has-sidebar{padding:32px 28px 60px;display:block}
-  .sp-sidebar{position:static;margin-bottom:28px}
+  .sp-sidebar{position:static !important;top:auto !important;z-index:0 !important;margin-bottom:28px}
   .bento{grid-template-columns:1fr 1fr}
   .b6,.b4,.b3,.b2{grid-column:span 2}
   .stats-wrap{grid-template-columns:1fr 1fr}
