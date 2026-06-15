@@ -60,7 +60,6 @@ nav{
   padding:0 60px;
   background:rgba(248,249,252,.85);
   backdrop-filter:blur(28px);
-  border-bottom:1px solid var(--b1);
 }
 .nav-row{height:96px;display:flex;align-items:center;justify-content:space-between}
 .nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
@@ -482,9 +481,9 @@ nav.menu-open + .ticker{display:none}
 .sp-breadcrumb-sep{color:var(--b2)}
 .sp-page-title{font-size:clamp(26px,4vw,52px);font-weight:800;letter-spacing:-.025em;line-height:1.1;color:var(--t)}
 .sp-divider{border:none;border-top:1px solid var(--b1);margin:0}
-.sp-layout{max-width:1260px;margin:0 auto;padding:48px 60px 80px}
+.sp-layout{max-width:1260px;margin:0 auto;padding:64px 60px 80px}
 .sp-layout.has-sidebar{display:grid;grid-template-columns:220px 1fr;gap:56px;align-items:start}
-.sp-sidebar{position:sticky;top:108px;align-self:start;height:fit-content}
+.sp-sidebar{position:sticky;top:128px;align-self:start;height:fit-content}
 .sp-sidebar-label{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--m);margin-bottom:12px}
 .sp-nav{display:flex;flex-direction:column;gap:2px}
 .sp-sub{display:block;font-size:15px;font-weight:500;color:var(--mid);text-decoration:none;padding:9px 14px;border-radius:8px;transition:color .15s,background .15s}
