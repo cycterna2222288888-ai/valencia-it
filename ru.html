@@ -440,6 +440,25 @@
     <a href="cookies.html">Использование cookie</a>
   </div>
 </footer>
+<div id="gdpr" style="display:none">
+  <div>
+    <p>Продолжая использовать сайт Valencia-IT.am, вы соглашаетесь с <a href="cookies.html">политикой использования Cookie-файлов</a>.</p>
+    <p><button>Соглашаюсь</button></p>
+  </div>
+</div>
+<script>
+  (function(){
+    if(document.cookie.indexOf('gdpr=1')!==-1){
+      document.getElementById('gdpr').style.display='none';
+    }else{
+      document.getElementById('gdpr').style.display='block';
+    }
+    document.querySelector('#gdpr button').addEventListener('click',function(){
+      document.cookie='gdpr=1; max-age=31536000; path=/';
+      document.getElementById('gdpr').style.display='none';
+    });
+  })();
+</script>
 
 <script src="script.js"></script>
 </body>
