@@ -430,39 +430,6 @@ nav.menu-open + .ticker{display:none}
 .an-n{font-size:40px;font-weight:800;letter-spacing:-.025em;background:linear-gradient(135deg,var(--pk),var(--cy));background-size:200%;animation:gshift 6s ease infinite;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .an-l{font-size:15px;color:var(--m);margin-top:6px;letter-spacing:.04em;text-transform:uppercase}
 
-/* training banner */
-.tr-banner{
-  border-radius:22px;overflow:hidden;margin-top:48px;
-  height:220px;position:relative;
-  box-shadow:0 8px 40px rgba(0,0,0,.12);
-}
-.tr-banner img{width:100%;height:100%;object-fit:cover;display:block}
-.tr-banner-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(135deg,rgba(8,10,24,.82) 0%,rgba(212,23,143,.35) 55%,transparent 100%);
-  display:flex;align-items:center;padding:0 48px;
-}
-.tr-banner-text .eyebrow{color:rgba(255,255,255,.55)}
-.tr-banner-text h3{
-  font-size:clamp(22px,2.8vw,36px);font-weight:800;
-  letter-spacing:-.025em;line-height:1.1;color:#fff;margin-top:8px;
-}
-
-/* ── TRAINING ── */
-#training{padding:120px 0;border-top:1px solid var(--b1)}
-.tr-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}
-.tr{
-  background:var(--s1);border:1px solid var(--b1);border-radius:18px;
-  padding:28px 32px;display:flex;justify-content:space-between;align-items:center;gap:20px;
-  box-shadow:0 1px 6px rgba(0,0,0,.04);
-  transition:border-color .2s,box-shadow .2s,transform .2s;
-}
-.tr:hover{border-color:rgba(212,23,143,.2);box-shadow:0 8px 32px rgba(0,0,0,.1);transform:translateY(-2px)}
-.tr-n{font-size:14px;font-weight:700;letter-spacing:.12em;background:linear-gradient(135deg,var(--pk),var(--cy));background-size:200%;animation:gshift 6s ease infinite;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px}
-.tr h3{font-size:20px;font-weight:700;color:var(--t);margin-bottom:4px;letter-spacing:-.01em}
-.tr p{font-size:16px;color:var(--m);font-weight:300}
-.tr-badge{font-size:14px;font-weight:600;color:var(--cy);border:1px solid rgba(0,189,212,.25);border-radius:100px;padding:6px 16px;white-space:nowrap;flex-shrink:0}
-
 /* ── CONTACT ── */
 #contact{padding:120px 0;border-top:1px solid var(--b1)}
 .contact-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:72px;align-items:start}
@@ -599,7 +566,6 @@ footer{border-top:1px solid var(--b1);padding:28px 60px 20px}
   .partner-grid{grid-template-columns:repeat(2,1fr);gap:10px}
   .partner-card{padding:18px 12px;gap:10px}
   .partner-logo{width:110px;height:44px}
-  .tr-grid{grid-template-columns:1fr}
   .hero-stats{flex-wrap:wrap}
   .hs{flex:0 0 50%;border-right:none;border-bottom:1px solid var(--b1)}
   .hs:nth-child(odd){border-right:1px solid var(--b1)}
